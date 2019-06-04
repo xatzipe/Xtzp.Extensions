@@ -69,7 +69,8 @@ namespace Xtzp.Extensions
         }
 
         /// <summary>
-        /// 
+        /// Returns the date of the given <param name="d"></param> from the current week
+        /// that the <param name="dt"></param> belongs to
         /// </summary>
         /// <param name="dt"></param>
         /// <returns></returns>
