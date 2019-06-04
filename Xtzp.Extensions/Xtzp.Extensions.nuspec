@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>$id$</id>
+    <version>1.0.0</version>
+    <title>Xtzp.Extensions</title>
+    <authors>Theodore Chatziperis (xatzipe)</authors>
+    <owners>Theodore Chatziperis (xatzipe)</owners>
+    <licenseUrl>https://github.com/xatzipe/Xtzp.Extensions/blob/master/LICENSE</licenseUrl>
+    <projectUrl>https://github.com/xatzipe/Xtzp.Extensions</projectUrl>
+    <requireLicenseAcceptance>true</requireLicenseAcceptance>
+    <description>Simple Extension Methods of built-in classes</description>
+    <releaseNotes>first release</releaseNotes>
+    <copyright>Copyright 2019</copyright>
+    <tags>List </tags>
+  </metadata>
+</package>
