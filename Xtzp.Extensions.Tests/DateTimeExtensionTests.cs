@@ -7,13 +7,13 @@ namespace Xtzp.Extensions.Tests
     public class DateTimeExtensionTests
     {
         [Theory]
-        [MemberData(nameof(NextGivenDatTestCases))]
+        [MemberData(nameof(NextGivenDateTestCases))]
         public void TestNextGivenDay(DateTime input, DayOfWeek inputDayOfWeek, DateTime expectedOutput)
         {
             Assert.Equal(expectedOutput, input.NextGivenDay(inputDayOfWeek));
         }
 
-        public static IEnumerable<object[]> NextGivenDatTestCases
+        public static IEnumerable<object[]> NextGivenDateTestCases
         {
             get
             {
