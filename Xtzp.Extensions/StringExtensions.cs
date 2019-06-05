@@ -1,4 +1,6 @@
 using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Text.RegularExpressions;
 
 namespace Xtzp.Extensions
@@ -97,17 +99,38 @@ namespace Xtzp.Extensions
             var words = s.Split(
                 new char[] { },
                 StringSplitOptions.RemoveEmptyEntries
-            );
+            ).AsEnumerable();
 
-            var result = words[0].ToLower();
-            for (var i = 1; i < words.Length; i++)
-                result +=
-                    words[i].Substring(0, 1).ToUpper() +
-                    words[i].Substring(1);
+            var result = words.First().ToLower();
+            result += string.Join(
+                string.Empty,
+                words.Skip(1).Select(w => w.Substring(0, 1).ToUpper() + w.Substring(1)));
 
             return result;
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="s"></param>
+        /// <returns></returns>
+        public static string ToPascalCase(this string s)
+        {
+            if (s == null || s.Length < 2)
+                return s;
+
+            var words = s.Split(
+                new char[] { },
+                StringSplitOptions.RemoveEmptyEntries
+            ).AsEnumerable();
+
+            var result = String.Join(
+                string.Empty,
+                words
+                    .Select(w => w.Substring(0, 1).ToUpper() + w.Substring(1))
+            );
+            return result;
+        }
 
         /// <summary>
         /// if the string is null return the fallback string

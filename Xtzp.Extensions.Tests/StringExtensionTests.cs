@@ -166,5 +166,47 @@ namespace Xtzp.Extensions.Tests
                 yield return new object[] {"ABCD", "A B C D"};
             }
         }
+
+        [Theory]
+        [MemberData(nameof(ToCamelCaseTestCases))]
+        public void TestToCamelCase(string input, string expected)
+        {
+            Assert.Equal(expected, input.ToCamelCase());
+        }
+
+        public static IEnumerable<object[]> ToCamelCaseTestCases
+        {
+            get
+            {
+                yield return new object[] {null, null};
+                yield return new object[] {string.Empty, string.Empty};
+                yield return new object[] {"A", "A"};
+                yield return new object[] {"a", "a"};
+                yield return new object[] {"A Random Text", "aRandomText"};
+                yield return new object[] {"a Random Text", "aRandomText",};
+                yield return new object[] {"A B C D", "aBCD"};
+            }
+        }
+        
+        [Theory]
+        [MemberData(nameof(ToPascalCaseTestCases))]
+        public void TestToPascalCase(string input, string expected)
+        {
+            Assert.Equal(expected, input.ToPascalCase());
+        }
+
+        public static IEnumerable<object[]> ToPascalCaseTestCases
+        {
+            get
+            {
+                yield return new object[] {null, null};
+                yield return new object[] {string.Empty, string.Empty};
+                yield return new object[] {"A", "A"};
+                yield return new object[] {"a", "a"};
+                yield return new object[] {"A Random Text", "ARandomText"};
+                yield return new object[] {"a Random Text", "ARandomText",};
+                yield return new object[] {"A B C D", "ABCD"};
+            }
+        }
     }
 }

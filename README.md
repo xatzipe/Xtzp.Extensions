@@ -20,7 +20,7 @@
         - AddWithFormat
         - AddIfNotExists
         
-     Collection
+    Collection
         - AddRange
     
     String
@@ -31,6 +31,7 @@
         - EqualIfNullOrEmpty
         - SplitPascalCase
         - ToCamelCase
+        - ToPascalCase
         - FallBackIfNull
         - FallBackIfEmpty
         - FallBackIfNullOrEmpty
