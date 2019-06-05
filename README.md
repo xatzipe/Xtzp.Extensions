@@ -19,6 +19,9 @@
     List
         - AddWithFormat
         - AddIfNotExists
+        
+     Collection
+        - AddRange
     
     String
         - IsNullOrEmpty
