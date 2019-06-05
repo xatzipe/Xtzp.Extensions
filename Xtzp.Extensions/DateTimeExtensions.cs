@@ -28,6 +28,16 @@ namespace Xtzp.Extensions
 
             return endOfTheMonth;
         }
+        
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="dt"></param>
+        /// <returns></returns>
+        public static DateTime BeginningOfNextMonth(this DateTime dt)
+        {
+            return new DateTime(dt.Year, dt.Month, 1).AddMonths(1);
+        }
 
         /// <summary>
         /// 

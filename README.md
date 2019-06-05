@@ -4,6 +4,7 @@
     DateTime
         - BeginningOfTheMonth
         - EndOfTheMonth
+        - BeginningOfNextMonth
         - NextGivenDay
         - NextMonday
         - NextSunday

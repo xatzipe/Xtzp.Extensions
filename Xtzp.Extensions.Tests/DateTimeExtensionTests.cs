@@ -534,6 +534,52 @@ namespace Xtzp.Extensions.Tests
         }
 
         [Theory]
+        [MemberData(nameof(BeginningOfNextMonthTestCases))]
+        public void TestBeginningOfNextMonth(DateTime input, DateTime expectedOutput)
+        {
+            Assert.Equal(expectedOutput, input.BeginningOfNextMonth());
+        }
+
+        public static IEnumerable<object[]> BeginningOfNextMonthTestCases
+        {
+            get
+            {
+                yield return new object[] {new DateTime(2018, 01, 01), new DateTime(2018, 02, 01),};
+                yield return new object[] {new DateTime(2018, 01, 02), new DateTime(2018, 02, 01),};
+                yield return new object[] {new DateTime(2018, 01, 03), new DateTime(2018, 02, 01),};
+                yield return new object[] {new DateTime(2018, 01, 04), new DateTime(2018, 02, 01),};
+                yield return new object[] {new DateTime(2018, 01, 05), new DateTime(2018, 02, 01),};
+                yield return new object[] {new DateTime(2018, 01, 06), new DateTime(2018, 02, 01),};
+                yield return new object[] {new DateTime(2018, 01, 07), new DateTime(2018, 02, 01),};
+                yield return new object[] {new DateTime(2018, 01, 08), new DateTime(2018, 02, 01),};
+                yield return new object[] {new DateTime(2018, 01, 09), new DateTime(2018, 02, 01),};
+                yield return new object[] {new DateTime(2018, 01, 10), new DateTime(2018, 02, 01),};
+                yield return new object[] {new DateTime(2018, 02, 01), new DateTime(2018, 03, 01),};
+                yield return new object[] {new DateTime(2018, 02, 02), new DateTime(2018, 03, 01),};
+                yield return new object[] {new DateTime(2018, 02, 03), new DateTime(2018, 03, 01),};
+                yield return new object[] {new DateTime(2018, 02, 04), new DateTime(2018, 03, 01),};
+                yield return new object[] {new DateTime(2018, 02, 05), new DateTime(2018, 03, 01),};
+                yield return new object[] {new DateTime(2018, 02, 06), new DateTime(2018, 03, 01),};
+                yield return new object[] {new DateTime(2018, 02, 07), new DateTime(2018, 03, 01),};
+                yield return new object[] {new DateTime(2018, 02, 08), new DateTime(2018, 03, 01),};
+                yield return new object[] {new DateTime(2018, 02, 09), new DateTime(2018, 03, 01),};
+                yield return new object[] {new DateTime(2018, 02, 10), new DateTime(2018, 03, 01),};
+                yield return new object[] {new DateTime(2018, 02, 28), new DateTime(2018, 03, 01),};
+                yield return new object[] {new DateTime(2016, 02, 01), new DateTime(2016, 03, 01),};
+                yield return new object[] {new DateTime(2016, 02, 02), new DateTime(2016, 03, 01),};
+                yield return new object[] {new DateTime(2016, 02, 03), new DateTime(2016, 03, 01),};
+                yield return new object[] {new DateTime(2016, 02, 04), new DateTime(2016, 03, 01),};
+                yield return new object[] {new DateTime(2016, 02, 05), new DateTime(2016, 03, 01),};
+                yield return new object[] {new DateTime(2016, 02, 06), new DateTime(2016, 03, 01),};
+                yield return new object[] {new DateTime(2016, 02, 07), new DateTime(2016, 03, 01),};
+                yield return new object[] {new DateTime(2016, 02, 08), new DateTime(2016, 03, 01),};
+                yield return new object[] {new DateTime(2016, 02, 09), new DateTime(2016, 03, 01),};
+                yield return new object[] {new DateTime(2016, 02, 10), new DateTime(2016, 03, 01),};
+                yield return new object[] {new DateTime(2016, 02, 29), new DateTime(2016, 03, 01),};
+            }
+        }
+
+        [Theory]
         [MemberData(nameof(DaysInCurrentMonthTestCases))]
         public void TestDaysInCurrentMonth(DateTime dt, int expectedResult)
         {

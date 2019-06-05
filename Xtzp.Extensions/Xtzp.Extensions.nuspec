@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <package >
   <metadata>
-    <id>$id$</id>
+    <id>XtzpExtensions</id>
     <version>1.0.0</version>
     <title>Xtzp.Extensions</title>
     <authors>Theodore Chatziperis (xatzipe)</authors>
@@ -12,6 +12,6 @@
     <description>Simple Extension Methods of built-in classes</description>
     <releaseNotes>first release</releaseNotes>
     <copyright>Copyright 2019</copyright>
-    <tags>List </tags>
+    <tags>Extensions, c#, List, String, DateTime, Enumerable</tags>
   </metadata>
 </package>
