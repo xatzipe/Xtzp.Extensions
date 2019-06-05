@@ -1,7 +1,7 @@
 
 [![Build status](https://ci.appveyor.com/api/projects/status/qq9fkk5wrrhyl79o?svg=true)](https://ci.appveyor.com/project/xatzipe/xtzp-extensions)
 
-**Simple Extension Methods of built in classes**
+**Simple Extension Methods of Built-in classes**
     
     DateTime
         - BeginningOfTheMonth

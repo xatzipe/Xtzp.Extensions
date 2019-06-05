@@ -6,7 +6,7 @@ namespace Xtzp.Extensions
     public static class DateTimeExtensions
     {
          /// <summary>
-        /// 
+        /// returns the Beginning of the Month for the input <param name="dt"></param>
         /// </summary>
         /// <param name="dt"></param>
         /// <returns></returns>
@@ -16,7 +16,7 @@ namespace Xtzp.Extensions
         }
 
         /// <summary>
-        /// 
+        /// returns the End of the Month for the input <param name="dt"></param>
         /// </summary>
         /// <param name="dt"></param>
         /// <returns></returns>
@@ -30,7 +30,7 @@ namespace Xtzp.Extensions
         }
         
         /// <summary>
-        /// 
+        /// returns the Beginning of Next Month for the input <param name="dt"></param>
         /// </summary>
         /// <param name="dt"></param>
         /// <returns></returns>
@@ -40,7 +40,9 @@ namespace Xtzp.Extensions
         }
 
         /// <summary>
-        /// 
+        /// returns the a DateTime that represents the next requested day of week
+        /// whether it belogs to the current week of the <param name="dt"></param>
+        /// or to the next
         /// </summary>
         /// <param name="dt"></param>
         /// <param name="d"></param>

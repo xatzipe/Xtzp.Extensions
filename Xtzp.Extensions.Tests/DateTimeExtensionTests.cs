@@ -7,6 +7,75 @@ namespace Xtzp.Extensions.Tests
     public class DateTimeExtensionTests
     {
         [Theory]
+        [MemberData(nameof(NextGivenDatTestCases))]
+        public void TestNextGivenDay(DateTime input, DayOfWeek inputDayOfWeek, DateTime expectedOutput)
+        {
+            Assert.Equal(expectedOutput, input.NextGivenDay(inputDayOfWeek));
+        }
+
+        public static IEnumerable<object[]> NextGivenDatTestCases
+        {
+            get
+            {
+                yield return new object[] {new DateTime(2016, 11, 28), DayOfWeek.Monday, new DateTime(2016, 12, 05)};
+                yield return new object[] {new DateTime(2016, 11, 29), DayOfWeek.Monday, new DateTime(2016, 12, 05)};
+                yield return new object[] {new DateTime(2016, 11, 30), DayOfWeek.Monday, new DateTime(2016, 12, 05)};
+                yield return new object[] {new DateTime(2016, 12, 1), DayOfWeek.Monday, new DateTime(2016, 12, 05)};
+                yield return new object[] {new DateTime(2016, 12, 2), DayOfWeek.Monday, new DateTime(2016, 12, 05)};
+                yield return new object[] {new DateTime(2016, 12, 3), DayOfWeek.Monday, new DateTime(2016, 12, 05)};
+                yield return new object[] {new DateTime(2016, 12, 4), DayOfWeek.Monday, new DateTime(2016, 12, 05)};
+
+                yield return new object[] {new DateTime(2016, 11, 28), DayOfWeek.Tuesday, new DateTime(2016, 11, 29)};
+                yield return new object[] {new DateTime(2016, 11, 29), DayOfWeek.Tuesday, new DateTime(2016, 12, 06)};
+                yield return new object[] {new DateTime(2016, 11, 30), DayOfWeek.Tuesday, new DateTime(2016, 12, 06)};
+                yield return new object[] {new DateTime(2016, 12, 1), DayOfWeek.Tuesday, new DateTime(2016, 12, 06)};
+                yield return new object[] {new DateTime(2016, 12, 2), DayOfWeek.Tuesday, new DateTime(2016, 12, 06)};
+                yield return new object[] {new DateTime(2016, 12, 3), DayOfWeek.Tuesday, new DateTime(2016, 12, 06)};
+                yield return new object[] {new DateTime(2016, 12, 4), DayOfWeek.Tuesday, new DateTime(2016, 12, 06)};
+
+                yield return new object[] {new DateTime(2016, 11, 28), DayOfWeek.Wednesday, new DateTime(2016, 11, 30)};
+                yield return new object[] {new DateTime(2016, 11, 29), DayOfWeek.Wednesday, new DateTime(2016, 11, 30)};
+                yield return new object[] {new DateTime(2016, 11, 30), DayOfWeek.Wednesday, new DateTime(2016, 12, 07)};
+                yield return new object[] {new DateTime(2016, 12, 1), DayOfWeek.Wednesday, new DateTime(2016, 12, 07)};
+                yield return new object[] {new DateTime(2016, 12, 2), DayOfWeek.Wednesday, new DateTime(2016, 12, 07)};
+                yield return new object[] {new DateTime(2016, 12, 3), DayOfWeek.Wednesday, new DateTime(2016, 12, 07)};
+                yield return new object[] {new DateTime(2016, 12, 4), DayOfWeek.Wednesday, new DateTime(2016, 12, 07)};
+
+                yield return new object[] {new DateTime(2016, 11, 28), DayOfWeek.Thursday, new DateTime(2016, 12, 01)};
+                yield return new object[] {new DateTime(2016, 11, 29), DayOfWeek.Thursday, new DateTime(2016, 12, 01)};
+                yield return new object[] {new DateTime(2016, 11, 30), DayOfWeek.Thursday, new DateTime(2016, 12, 01)};
+                yield return new object[] {new DateTime(2016, 12, 1), DayOfWeek.Thursday, new DateTime(2016, 12, 08)};
+                yield return new object[] {new DateTime(2016, 12, 2), DayOfWeek.Thursday, new DateTime(2016, 12, 08)};
+                yield return new object[] {new DateTime(2016, 12, 3), DayOfWeek.Thursday, new DateTime(2016, 12, 08)};
+                yield return new object[] {new DateTime(2016, 12, 4), DayOfWeek.Thursday, new DateTime(2016, 12, 08)};
+
+                yield return new object[] {new DateTime(2016, 11, 28), DayOfWeek.Friday, new DateTime(2016, 12, 02)};
+                yield return new object[] {new DateTime(2016, 11, 29), DayOfWeek.Friday, new DateTime(2016, 12, 02)};
+                yield return new object[] {new DateTime(2016, 11, 30), DayOfWeek.Friday, new DateTime(2016, 12, 02)};
+                yield return new object[] {new DateTime(2016, 12, 1), DayOfWeek.Friday, new DateTime(2016, 12, 02)};
+                yield return new object[] {new DateTime(2016, 12, 2), DayOfWeek.Friday, new DateTime(2016, 12, 09)};
+                yield return new object[] {new DateTime(2016, 12, 3), DayOfWeek.Friday, new DateTime(2016, 12, 09)};
+                yield return new object[] {new DateTime(2016, 12, 4), DayOfWeek.Friday, new DateTime(2016, 12, 09)};
+
+                yield return new object[] {new DateTime(2016, 11, 28), DayOfWeek.Saturday, new DateTime(2016, 12, 03)};
+                yield return new object[] {new DateTime(2016, 11, 29), DayOfWeek.Saturday, new DateTime(2016, 12, 03)};
+                yield return new object[] {new DateTime(2016, 11, 30), DayOfWeek.Saturday, new DateTime(2016, 12, 03)};
+                yield return new object[] {new DateTime(2016, 12, 1), DayOfWeek.Saturday, new DateTime(2016, 12, 03)};
+                yield return new object[] {new DateTime(2016, 12, 2), DayOfWeek.Saturday, new DateTime(2016, 12, 03)};
+                yield return new object[] {new DateTime(2016, 12, 3), DayOfWeek.Saturday, new DateTime(2016, 12, 10)};
+                yield return new object[] {new DateTime(2016, 12, 4), DayOfWeek.Saturday, new DateTime(2016, 12, 10)};
+
+                yield return new object[] {new DateTime(2016, 11, 28), DayOfWeek.Sunday, new DateTime(2016, 12, 04)};
+                yield return new object[] {new DateTime(2016, 11, 29), DayOfWeek.Sunday, new DateTime(2016, 12, 04)};
+                yield return new object[] {new DateTime(2016, 11, 30), DayOfWeek.Sunday, new DateTime(2016, 12, 04)};
+                yield return new object[] {new DateTime(2016, 12, 1), DayOfWeek.Sunday, new DateTime(2016, 12, 04)};
+                yield return new object[] {new DateTime(2016, 12, 2), DayOfWeek.Sunday, new DateTime(2016, 12, 04)};
+                yield return new object[] {new DateTime(2016, 12, 3), DayOfWeek.Sunday, new DateTime(2016, 12, 04)};
+                yield return new object[] {new DateTime(2016, 12, 4), DayOfWeek.Sunday, new DateTime(2016, 12, 11)};
+            }
+        }
+
+        [Theory]
         [MemberData(nameof(NextMondayTestCases))]
         public void TestNextMonday(DateTime input, DateTime expected)
         {
