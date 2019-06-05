@@ -4,7 +4,7 @@ using Xunit;
 
 namespace Xtzp.Extensions.Tests
 {
-    public class LibExtensionTests
+    public class ListExtensionTests
     {
         /// <summary>
         /// tests for the <see cref="ListExtensions.AddWithFormat(IList{string}, string, string[])"/>
