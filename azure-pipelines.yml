@@ -16,16 +16,18 @@ variables:
 
 steps:
 
-- task: DotNetCoreCLI@2
+- task: Restore
   inputs:
     command: 'restore'
     feedsToUse: 'select'
 
-- task: DotNetCoreCLI@2
+- task: Build
   inputs:
     command: 'build'
 
-- task: DotNetCoreCLI@2
+- task: Test
   inputs:
     command: 'test'
     testRunTitle: 'Unit Tests'
+
+
