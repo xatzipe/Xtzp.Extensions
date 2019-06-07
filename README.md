@@ -36,5 +36,6 @@
         - FallBackIfEmpty
         - FallBackIfNullOrEmpty
         - Contains
+        - UcFirst
     
      
