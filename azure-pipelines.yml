@@ -16,16 +16,16 @@ variables:
 
 steps:
 
-- task: Restore
+- task: Restore@2
   inputs:
     command: 'restore'
     feedsToUse: 'select'
 
-- task: Build
+- task: Build@2
   inputs:
     command: 'build'
 
-- task: Test
+- task: Test@2
   inputs:
     command: 'test'
     testRunTitle: 'Unit Tests'
