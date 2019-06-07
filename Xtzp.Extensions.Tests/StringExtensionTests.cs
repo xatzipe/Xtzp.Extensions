@@ -208,5 +208,23 @@ namespace Xtzp.Extensions.Tests
                 yield return new object[] {"A B C D", "ABCD"};
             }
         }
+
+        [Theory]
+        [MemberData(nameof(TestUcFirstTestCases))]
+        public void TestUcFirst(string input, string expected) 
+        {
+            Assert.Equal(expected, input.UcFirst());
+        }
+
+        public static IEnumerable<object[]> TestUcFirstTestCases
+        {
+            get
+            {
+                yield return new object[] { "abc", "Abc" };
+                yield return new object[] { "a", "A" };
+                yield return new object[] { null, null};
+                yield return new object[] { string.Empty, string.Empty };
+            }
+        }
     }
 }

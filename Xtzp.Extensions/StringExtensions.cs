@@ -176,10 +176,30 @@ namespace Xtzp.Extensions
         public static bool Contains(this string str, string substring, StringComparison comp)
         {
             if (substring == null)
+            {
                 throw new ArgumentNullException(nameof(substring), "substring cannot be null.");
-            else if (!Enum.IsDefined(typeof(StringComparison), comp))
+            }
+
+            if (!Enum.IsDefined(typeof(StringComparison), comp))
+            {
                 throw new ArgumentException("comp is not a member of StringComparison", nameof(comp));
+            }
+
             return str.IndexOf(substring, comp) >= 0;
+        }
+
+        /// <summary>
+        /// converts the first character of the string to UpperCase
+        /// inspired by PHP's function ucfirst
+        /// </summary>
+        /// <param name="str"></param>
+        /// <returns></returns>
+        public static string UcFirst(this string str)
+        {
+            return str.IsNullOrEmpty()
+                ? str
+                : str.Aggregate(string.Empty,
+                    (st, c) => st + (st.IsNullOrEmpty() ? char.ToUpper(c) : c));
         }
     }
 }
