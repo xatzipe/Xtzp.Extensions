@@ -187,7 +187,7 @@ namespace Xtzp.Extensions.Tests
                 yield return new object[] {"A B C D", "aBCD"};
             }
         }
-        
+
         [Theory]
         [MemberData(nameof(ToPascalCaseTestCases))]
         public void TestToPascalCase(string input, string expected)
@@ -211,7 +211,7 @@ namespace Xtzp.Extensions.Tests
 
         [Theory]
         [MemberData(nameof(TestUcFirstTestCases))]
-        public void TestUcFirst(string input, string expected) 
+        public void TestUcFirst(string input, string expected)
         {
             Assert.Equal(expected, input.UcFirst());
         }
@@ -220,10 +220,44 @@ namespace Xtzp.Extensions.Tests
         {
             get
             {
-                yield return new object[] { "abc", "Abc" };
-                yield return new object[] { "a", "A" };
-                yield return new object[] { null, null};
-                yield return new object[] { string.Empty, string.Empty };
+                yield return new object[] {"abc", "Abc"};
+                yield return new object[] {"a", "A"};
+                yield return new object[] {null, null};
+                yield return new object[] {string.Empty, string.Empty};
+            }
+        }
+
+        [Theory]
+        [MemberData(nameof(TestEnsurePrefixTestCases))]
+        public void TestEnsurePrefix(string input, string prefix, string expected)
+        {
+            Assert.Equal(expected, input.EnsurePrefix(prefix));
+        }
+
+        public static IEnumerable<object[]> TestEnsurePrefixTestCases
+        {
+            get
+            {
+                yield return new object[] {null, "a", null};
+                yield return new object[] {string.Empty, "a", "a"};
+                yield return new object[] {"Abc", "pref", "prefAbc"};
+            }
+        }
+
+        [Theory]
+        [MemberData(nameof(TestEnsureSuffixTestCases))]
+        public void TestEnsureSuffix(string input, string suffix, string expected)
+        {
+            Assert.Equal(expected, input.EnsureSuffix(suffix));
+        }
+
+        public static IEnumerable<object[]> TestEnsureSuffixTestCases
+        {
+            get
+            {
+                yield return new object[] {null, "a", null};
+                yield return new object[] {string.Empty, "a", "a"};
+                yield return new object[] {"Abc", "suff", "Abcsuff"};
             }
         }
     }

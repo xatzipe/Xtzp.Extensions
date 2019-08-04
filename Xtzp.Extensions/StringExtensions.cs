@@ -201,5 +201,37 @@ namespace Xtzp.Extensions
                 : str.Aggregate(string.Empty,
                     (st, c) => st + (st.IsNullOrEmpty() ? char.ToUpper(c) : c));
         }
+
+        /// <summary>
+        /// adds the given <see cref="prefix"/> to the start of the
+        /// string if it doesn't exist already
+        /// </summary>
+        /// <param name="str"></param>
+        /// <param name="prefix"></param>
+        /// <returns></returns>
+        public static string EnsurePrefix(this string str, string prefix)
+        {
+            return str == null
+                ? str
+                : str.StartsWith(prefix)
+                    ? str
+                    : prefix + str;
+        }
+        
+        /// <summary>
+        /// adds the given <see cref="suffix"/> to the end of the
+        /// string if it doesn't exist already
+        /// </summary>
+        /// <param name="str"></param>
+        /// <param name="suffix"></param>
+        /// <returns></returns>
+        public static string EnsureSuffix(this string str, string suffix)
+        {
+            return str == null
+                ? str
+                : str.StartsWith(suffix)
+                    ? str
+                    : str + suffix;
+        }
     }
 }

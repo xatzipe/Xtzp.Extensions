@@ -29,6 +29,8 @@
         - IsEqual
         - TrimSafe
         - EqualIfNullOrEmpty
+        - EnsurePrefix
+        - EnsureSuffix
         - SplitPascalCase
         - ToCamelCase
         - ToPascalCase
