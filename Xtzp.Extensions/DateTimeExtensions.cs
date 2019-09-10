@@ -3,10 +3,13 @@ using System.Globalization;
 
 namespace Xtzp.Extensions
 {
+    /// <summary>
+    /// extension methods for datetime
+    /// </summary>
     public static class DateTimeExtensions
     {
          /// <summary>
-        /// returns the Beginning of the Month for the input <param name="dt"></param>
+        /// returns the Beginning of the Month for the input <paramref name="dt"/>
         /// </summary>
         /// <param name="dt"></param>
         /// <returns></returns>
@@ -16,7 +19,7 @@ namespace Xtzp.Extensions
         }
 
         /// <summary>
-        /// returns the End of the Month for the input <param name="dt"></param>
+        /// returns the End of the Month for the input <paramref name="dt"/>
         /// </summary>
         /// <param name="dt"></param>
         /// <returns></returns>
@@ -30,7 +33,7 @@ namespace Xtzp.Extensions
         }
         
         /// <summary>
-        /// returns the Beginning of Next Month for the input <param name="dt"></param>
+        /// returns the Beginning of Next Month for the input <paramref name="dt"/>
         /// </summary>
         /// <param name="dt"></param>
         /// <returns></returns>
@@ -41,7 +44,7 @@ namespace Xtzp.Extensions
 
         /// <summary>
         /// returns the a DateTime that represents the next requested day of week
-        /// whether it belogs to the current week of the <param name="dt"></param>
+        /// whether it belogs to the current week of the <paramref name="dt"/>
         /// or to the next
         /// </summary>
         /// <param name="dt"></param>
@@ -81,10 +84,11 @@ namespace Xtzp.Extensions
         }
 
         /// <summary>
-        /// Returns the date of the given <param name="d"></param> from the current week
-        /// that the <param name="dt"></param> belongs to
+        /// Returns the date of the given <paramref name="d"></paramref> from the current week
+        /// that the <paramref name="dt"/> belongs to
         /// </summary>
         /// <param name="dt"></param>
+        /// <param name="d"></param>
         /// <returns></returns>
         public static DateTime WeekDay (this DateTime dt, DayOfWeek d)
         {

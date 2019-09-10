@@ -3,6 +3,9 @@ using System.Linq;
 
 namespace Xtzp.Extensions
 {
+    /// <summary>
+    /// extension methods for Enumerables
+    /// </summary>
     public static class EnumerableExtensions
     {
         

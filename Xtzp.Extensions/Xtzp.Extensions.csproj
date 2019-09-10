@@ -2,6 +2,26 @@
 
     <PropertyGroup>
         <TargetFramework>netstandard2.0</TargetFramework>
+        <Title>Xtzp.Extensions</Title>
+        <Authors />
+        <PackageVersion>1.0.3</PackageVersion>
+        <Description>Theodore Chatziperis (xatzipe)</Description>
+        <Copyright>Theodore Chatziperis (xatzipe)</Copyright>
+        <PackageProjectUrl>https://github.com/xatzipe/Xtzp.Extensions</PackageProjectUrl>
+        <PackageLicenseUrl>https://github.com/xatzipe/Xtzp.Extensions/blob/master/LICENSE</PackageLicenseUrl>
+        <PackageTags>Extensions, c#, List, String, DateTime, Enumerable</PackageTags>
+        <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
+        <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+        <RepositoryUrl>https://github.com/xatzipe/Xtzp.Extensions</RepositoryUrl>
+        <RepositoryType>git</RepositoryType>
+    </PropertyGroup>
+
+    <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+      <DocumentationFile>bin\Debug\Xtzp.Extensions.xml</DocumentationFile>
+    </PropertyGroup>
+
+    <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+      <DocumentationFile>bin\Release\Xtzp.Extensions.xml</DocumentationFile>
     </PropertyGroup>
 
 </Project>

@@ -2,6 +2,10 @@ using System.Collections.Generic;
 
 namespace Xtzp.Extensions
 {
+    
+    /// <summary>
+    /// extension methods for collections
+    /// </summary>
     public static class CollectionExtensions
     {
         /// <summary>

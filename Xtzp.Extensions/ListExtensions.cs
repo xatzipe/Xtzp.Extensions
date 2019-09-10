@@ -3,6 +3,9 @@ using System.Collections.Generic;
 
 namespace Xtzp.Extensions
 {
+    /// <summary>
+    /// extension methods for Lists
+    /// </summary>
     public static class ListExtensions
     {
         /// <summary>

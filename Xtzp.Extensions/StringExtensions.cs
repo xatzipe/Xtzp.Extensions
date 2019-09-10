@@ -5,6 +5,10 @@ using System.Text.RegularExpressions;
 
 namespace Xtzp.Extensions
 {
+    
+    /// <summary>
+    /// extension methods for string
+    /// </summary>
     public static class StringExtensions
     {
         /// <summary>
@@ -203,7 +207,7 @@ namespace Xtzp.Extensions
         }
 
         /// <summary>
-        /// adds the given <see cref="prefix"/> to the start of the
+        /// adds the given <paramref name="prefix"/> to the start of the
         /// string if it doesn't exist already
         /// </summary>
         /// <param name="str"></param>
@@ -219,7 +223,7 @@ namespace Xtzp.Extensions
         }
         
         /// <summary>
-        /// adds the given <see cref="suffix"/> to the end of the
+        /// adds the given <paramref name="suffix"/> to the end of the
         /// string if it doesn't exist already
         /// </summary>
         /// <param name="str"></param>
