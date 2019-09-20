@@ -1,5 +1,7 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Linq.Expressions;
 
 namespace Xtzp.Extensions
 {
@@ -44,6 +46,29 @@ namespace Xtzp.Extensions
             if (!list.Contains(value)) {
                 list.Add(value);
             }
+            return list;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="list"></param>
+        /// <param name="predicate"></param>
+        /// <param name="value"></param>
+        /// <typeparam name="T"></typeparam>
+        /// <returns></returns>
+        /// <exception cref="Exception"></exception>
+        public static List<T> AddIfNotExists<T>(this List<T> list, Func<T, bool> predicate, T value)
+        {
+            if (list is null)
+            {
+                throw new Exception("List cannot be null");
+            }
+            if (!list.Any(predicate))
+            {
+                list.Add(value);
+            }
+
             return list;
         }
     }

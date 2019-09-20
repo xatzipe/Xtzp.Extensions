@@ -169,29 +169,6 @@ namespace Xtzp.Extensions
             return string.IsNullOrEmpty(s) ? fallBack : s;
         }
 
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="str"></param>
-        /// <param name="substring"></param>
-        /// <param name="comp"></param>
-        /// <returns></returns>
-        public static bool Contains(this string str, string substring, StringComparison comp)
-        {
-            if (substring == null)
-            {
-                throw new ArgumentNullException(nameof(substring), "substring cannot be null.");
-            }
-
-            if (!Enum.IsDefined(typeof(StringComparison), comp))
-            {
-                throw new ArgumentException("comp is not a member of StringComparison", nameof(comp));
-            }
-
-            return str.IndexOf(substring, comp) >= 0;
-        }
-
         /// <summary>
         /// converts the first character of the string to UpperCase
         /// inspired by PHP's function ucfirst
