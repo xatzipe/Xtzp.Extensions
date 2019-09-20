@@ -29,7 +29,7 @@ namespace Xtzp.Extensions
             list.Add(parsedItem);
             return list;
         }
-        
+
         /// <summary>
         /// Adds the item to the list if it does not exist
         /// </summary>
@@ -37,15 +37,18 @@ namespace Xtzp.Extensions
         /// <param name="value"></param>
         /// <typeparam name="T"></typeparam>
         /// <returns></returns>
-        public static List<T> AddIfNotExists<T> (this List<T> list, T value)
+        public static List<T> AddIfNotExists<T>(this List<T> list, T value)
         {
             if (list is null)
             {
                 throw new Exception("List cannot be null");
             }
-            if (!list.Contains(value)) {
+
+            if (!list.Contains(value))
+            {
                 list.Add(value);
             }
+
             return list;
         }
 
@@ -58,15 +61,38 @@ namespace Xtzp.Extensions
         /// <typeparam name="T"></typeparam>
         /// <returns></returns>
         /// <exception cref="Exception"></exception>
-        public static List<T> AddIfNotExists<T>(this List<T> list, Func<T, bool> predicate, T value)
+        public static List<T> AddIfNotExists<T>(this List<T> list, Func<T, Func<T, bool>> predicate, T value)
         {
             if (list is null)
             {
                 throw new Exception("List cannot be null");
             }
-            if (!list.Any(predicate))
+
+            if (!list.Any(predicate(value)))
             {
                 list.Add(value);
+            }
+
+            return list;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="list"></param>
+        /// <param name="predicate"></param>
+        /// <param name="values"></param>
+        /// <typeparam name="T"></typeparam>
+        /// <returns></returns>
+        public static List<T> AddRangeIfNotExists<T>(
+            this List<T> list,
+            Func<T, Func<T, bool>> predicate,
+            IEnumerable<T> values
+        )
+        {
+            foreach (var val in values)
+            {
+                list.AddIfNotExists(predicate, val);
             }
 
             return list;

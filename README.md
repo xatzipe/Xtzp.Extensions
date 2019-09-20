@@ -19,6 +19,7 @@
     List
         - AddWithFormat
         - AddIfNotExists
+        - AddRangeIfNotExists
         
     Collection
         - AddRange

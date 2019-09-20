@@ -92,6 +92,9 @@ namespace Xtzp.Extensions.Tests
         }
 
         [Theory]
+        [InlineData(null, null, true)]
+        [InlineData(null, "", false)]
+        [InlineData(null, "abc", false)]
         [InlineData("", null, false)]
         [InlineData("", "", true)]
         [InlineData("abc", "abc", true)]

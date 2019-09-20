@@ -2,7 +2,7 @@
 <package >
   <metadata>
     <id>Xtzp.Extensions</id>
-    <version>1.0.4</version>
+    <version>1.0.5</version>
     <title>Xtzp.Extensions</title>
     <authors>Theodore Chatziperis (xatzipe)</authors>
     <owners>Theodore Chatziperis (xatzipe)</owners>
@@ -10,7 +10,7 @@
     <projectUrl>https://github.com/xatzipe/Xtzp.Extensions</projectUrl>
     <requireLicenseAcceptance>true</requireLicenseAcceptance>
     <description>Simple Extension Methods of built-in classes</description>
-    <releaseNotes>added AddIfNotExists overload in List Extensions with predicate argument</releaseNotes>
+    <releaseNotes>added AddRangeIfNotExists, modify AddIfNotExists so as predicate argument does not depends on the an variable</releaseNotes>
     <copyright>Copyright 2019</copyright>
     <tags>Extensions, c#, List, String, DateTime, Enumerable</tags>
   </metadata>
