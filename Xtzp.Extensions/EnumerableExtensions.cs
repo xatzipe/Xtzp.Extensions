@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 
 namespace Xtzp.Extensions
 {
@@ -8,7 +9,6 @@ namespace Xtzp.Extensions
     /// </summary>
     public static class EnumerableExtensions
     {
-        
         /// <summary>
         /// It takes an enumerable and returns another one that bar be iterated in batches 
         /// </summary>
@@ -22,7 +22,7 @@ namespace Xtzp.Extensions
             {
                 yield break;
             }
-            
+
             int counter = 0;
             var batch = new List<T>();
             foreach (var item in input)
@@ -36,6 +36,11 @@ namespace Xtzp.Extensions
                     counter = 0;
                     yield return result;
                 }
+            }
+
+            if (batch.Count > 0)
+            {
+                yield return batch;
             }
         }
     }
