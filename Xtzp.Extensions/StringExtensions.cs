@@ -210,7 +210,7 @@ namespace Xtzp.Extensions
         {
             return str == null
                 ? str
-                : str.StartsWith(suffix)
+                : str.EndsWith(suffix)
                     ? str
                     : str + suffix;
         }

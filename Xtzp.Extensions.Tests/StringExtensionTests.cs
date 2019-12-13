@@ -213,13 +213,13 @@ namespace Xtzp.Extensions.Tests
         }
 
         [Theory]
-        [MemberData(nameof(TestUcFirstTestCases))]
+        [MemberData(nameof(UcFirstTestCases))]
         public void TestUcFirst(string input, string expected)
         {
             Assert.Equal(expected, input.UcFirst());
         }
 
-        public static IEnumerable<object[]> TestUcFirstTestCases
+        public static IEnumerable<object[]> UcFirstTestCases
         {
             get
             {
@@ -231,36 +231,40 @@ namespace Xtzp.Extensions.Tests
         }
 
         [Theory]
-        [MemberData(nameof(TestEnsurePrefixTestCases))]
+        [MemberData(nameof(EnsurePrefixTestCases))]
         public void TestEnsurePrefix(string input, string prefix, string expected)
         {
             Assert.Equal(expected, input.EnsurePrefix(prefix));
         }
 
-        public static IEnumerable<object[]> TestEnsurePrefixTestCases
+        public static IEnumerable<object[]> EnsurePrefixTestCases
         {
             get
             {
                 yield return new object[] {null, "a", null};
                 yield return new object[] {string.Empty, "a", "a"};
                 yield return new object[] {"Abc", "pref", "prefAbc"};
+                yield return new object[] {"prefAbc", "pref", "prefAbc"};
             }
         }
 
         [Theory]
-        [MemberData(nameof(TestEnsureSuffixTestCases))]
+        [MemberData(nameof(EnsureSuffixTestCases))]
         public void TestEnsureSuffix(string input, string suffix, string expected)
         {
             Assert.Equal(expected, input.EnsureSuffix(suffix));
         }
 
-        public static IEnumerable<object[]> TestEnsureSuffixTestCases
+        public static IEnumerable<object[]> EnsureSuffixTestCases
         {
             get
             {
                 yield return new object[] {null, "a", null};
                 yield return new object[] {string.Empty, "a", "a"};
                 yield return new object[] {"Abc", "suff", "Abcsuff"};
+                yield return new object[] {"Abccc", "ccc", "Abccc"};
+                yield return new object[] {"abccc/", "ccc", "abccc/ccc"};
+                yield return new object[] {"abccc/", "/", "abccc/"};
             }
         }
     }

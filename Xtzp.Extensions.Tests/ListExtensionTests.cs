@@ -117,8 +117,8 @@ namespace Xtzp.Extensions.Tests
         [Theory]
         [MemberData(nameof(AddIfNotExistsOverrideAddsItemWhenNotInListTestCases))]
         public void TestAddIfNotExistsOverrideAddsItemWhenNotInList(
-            List<AddIfNotExistPOCOClass> expected,
-            List<AddIfNotExistPOCOClass> actual
+            List<AddIfNotExistPocoClass> expected,
+            List<AddIfNotExistPocoClass> actual
         )
         {
             Assert.Equal(expected, actual);
@@ -128,34 +128,34 @@ namespace Xtzp.Extensions.Tests
         {
             get
             {
-                var obj1 = new AddIfNotExistPOCOClass("Name1", "LastName1", 10);
-                var obj2 = new AddIfNotExistPOCOClass("Name1", "LastName2", 11);
-                var obj3 = new AddIfNotExistPOCOClass("Name3", "LastName3", 12);
-                var obj4 = new AddIfNotExistPOCOClass("Name1", "LastName1", 14);
-                var obj5 = new AddIfNotExistPOCOClass("Name5", "LastName5", 15);
+                var obj1 = new AddIfNotExistPocoClass("Name1", "LastName1", 10);
+                var obj2 = new AddIfNotExistPocoClass("Name1", "LastName2", 11);
+                var obj3 = new AddIfNotExistPocoClass("Name3", "LastName3", 12);
+                var obj4 = new AddIfNotExistPocoClass("Name1", "LastName1", 14);
+                var obj5 = new AddIfNotExistPocoClass("Name5", "LastName5", 15);
 
-                var lst = new List<AddIfNotExistPOCOClass>();
+                var lst = new List<AddIfNotExistPocoClass>();
                 lst.AddIfNotExists(obj1);
 
                 yield return new object[] {new[] {obj1}.ToList(), lst};
 
-                lst = new List<AddIfNotExistPOCOClass>();
+                lst = new List<AddIfNotExistPocoClass>();
                 lst.AddIfNotExists(obj1);
                 lst.AddIfNotExists(ob => o => o.Name == ob.Name, obj2);
                 yield return new object[] {new[] {obj1}.ToList(), lst};
 
-                lst = new List<AddIfNotExistPOCOClass>();
+                lst = new List<AddIfNotExistPocoClass>();
                 lst.AddIfNotExists(obj1);
                 lst.AddIfNotExists(ob => o => o.Name == ob.Name, obj3);
                 yield return new object[] {new[] {obj1, obj3}.ToList(), lst};
 
-                lst = new List<AddIfNotExistPOCOClass>();
+                lst = new List<AddIfNotExistPocoClass>();
                 lst.AddIfNotExists(obj1);
                 lst.AddIfNotExists(obj3);
                 lst.AddIfNotExists(ob => o => o.Name == ob.Name && o.LastName == ob.LastName, obj4);
                 yield return new object[] {new[] {obj1, obj3}.ToList(), lst};
 
-                lst = new List<AddIfNotExistPOCOClass>();
+                lst = new List<AddIfNotExistPocoClass>();
                 lst.AddIfNotExists(obj1);
                 lst.AddIfNotExists(obj3);
                 lst.AddIfNotExists(ob => o => o.Age == ob.Age, obj5);
@@ -166,13 +166,13 @@ namespace Xtzp.Extensions.Tests
         [Fact]
         public void TestAddRangeIfNotExists()
         {
-            var obj1 = new AddIfNotExistPOCOClass("Name1", "LastName1", 10);
-            var obj2 = new AddIfNotExistPOCOClass("Name1", "LastName2", 11);
-            var obj3 = new AddIfNotExistPOCOClass("Name3", "LastName3", 12);
-            var obj4 = new AddIfNotExistPOCOClass("Name1", "LastName1", 14);
-            var obj5 = new AddIfNotExistPOCOClass("Name5", "LastName5", 15);
+            var obj1 = new AddIfNotExistPocoClass("Name1", "LastName1", 10);
+            var obj2 = new AddIfNotExistPocoClass("Name1", "LastName2", 11);
+            var obj3 = new AddIfNotExistPocoClass("Name3", "LastName3", 12);
+            var obj4 = new AddIfNotExistPocoClass("Name1", "LastName1", 14);
+            var obj5 = new AddIfNotExistPocoClass("Name5", "LastName5", 15);
 
-            var lst = new List<AddIfNotExistPOCOClass>()
+            var lst = new List<AddIfNotExistPocoClass>()
             {
                 obj1,
                 obj2
@@ -184,13 +184,13 @@ namespace Xtzp.Extensions.Tests
             Assert.Equal(new[] {obj1, obj2, obj5}, lst);
         }
 
-        public class AddIfNotExistPOCOClass
+        public class AddIfNotExistPocoClass
         {
             public readonly string Name;
             public readonly string LastName;
             public readonly int Age;
 
-            public AddIfNotExistPOCOClass(string name, string lastName, int age)
+            public AddIfNotExistPocoClass(string name, string lastName, int age)
             {
                 Name = name;
                 LastName = lastName;
