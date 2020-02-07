@@ -24,6 +24,10 @@
     Collection
         - AddRange
     
+    Dictionary
+        - Add(KeyValuePair)
+        - AddRange(KeyValuePair)
+    
     String
         - IsNullOrEmpty
         - FormatStr
