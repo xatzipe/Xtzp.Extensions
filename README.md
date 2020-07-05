@@ -1,6 +1,6 @@
 
 [![Build status](https://ci.appveyor.com/api/projects/status/qq9fkk5wrrhyl79o?svg=true)](https://ci.appveyor.com/project/xatzipe/xtzp-extensions)
-
+[![Build Status](https://dev.azure.com/xatzipe/Xtzp.Extensions/_apis/build/status/xatzipe.Xtzp.Extensions?branchName=master)](https://dev.azure.com/xatzipe/Xtzp.Extensions/_build/latest?definitionId=7&branchName=master)
 **Simple Extension Methods of Built-in classes**
     
     DateTime
