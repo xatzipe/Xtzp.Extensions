@@ -29,3 +29,16 @@ steps:
   inputs:
     command: 'test'
     testRunTitle: 'Unit Tests'
+
+- task: DotNetCoreCLI@2
+  inputs:
+    command: 'pack'
+    packagesToPack: '**/*.csproj;!**/*.Tests.csproj'
+    versioningScheme: 'byBuildNumber'
+
+- task: NuGetCommand@2
+  inputs:
+    command: 'push'
+    packagesToPush: '$(Build.ArtifactStagingDirectory)/**/*.nupkg;!$(Build.ArtifactStagingDirectory)/**/*.symbols.nupkg'
+    nuGetFeedType: 'internal'
+    publishVstsFeed: 'afa8297f-59ca-4f66-a9bb-2224afc2e3b8/2253745f-8d36-4798-8254-af18b0ca74f6'
