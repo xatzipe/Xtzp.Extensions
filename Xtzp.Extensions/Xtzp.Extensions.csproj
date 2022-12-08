@@ -15,7 +15,19 @@
         <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
         <RepositoryUrl>https://github.com/xatzipe/Xtzp.Extensions</RepositoryUrl>
         <RepositoryType>git</RepositoryType>
+        <PackageReleaseNotes>Added BeginningOfDay, EndOfDay</PackageReleaseNotes>
+        <PackageReadmeFile>README.md</PackageReadmeFile>
+        <IncludeSymbols>true</IncludeSymbols>
+        <SymbolPackageFormat>snupkg</SymbolPackageFormat>
     </PropertyGroup>
+
+    <PropertyGroup>
+
+    </PropertyGroup>
+
+    <ItemGroup>
+        <None Include="..\README.md" Pack="true" PackagePath="\"/>
+    </ItemGroup>
 
     <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
         <DocumentationFile>bin\Debug\Xtzp.Extensions.xml</DocumentationFile>
