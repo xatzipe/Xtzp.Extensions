@@ -4,6 +4,8 @@
 **Simple Extension Methods of Built-in classes**
     
     DateTime
+        - BeginningOfDay
+        - EndOfDay
         - BeginningOfTheMonth
         - EndOfTheMonth
         - BeginningOfNextMonth

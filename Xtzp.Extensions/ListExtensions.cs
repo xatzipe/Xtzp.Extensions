@@ -1,22 +1,21 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Linq.Expressions;
 
 namespace Xtzp.Extensions
 {
     /// <summary>
-    /// extension methods for Lists
+    ///     extension methods for Lists
     /// </summary>
     public static class ListExtensions
     {
         /// <summary>
-        /// Adds a new <paramref name="item"/> to the <paramref name="list"/>
+        ///     Adds a new <paramref name="item" /> to the <paramref name="list" />
         /// </summary>
         /// <returns>The with format.</returns>
         /// <param name="list">the list where the item will be added</param>
         /// <param name="item">the string item that contains the placeholders just like String.Format method</param>
-        /// <param name="parameters">the parameters that will be replace the placeholders of the <paramref name="item"/></param>
+        /// <param name="parameters">the parameters that will be replace the placeholders of the <paramref name="item" /></param>
         public static IList<string> AddWithFormat(
             this IList<string> list,
             string item,
@@ -31,7 +30,7 @@ namespace Xtzp.Extensions
         }
 
         /// <summary>
-        /// Adds the item to the list if it does not exist
+        ///     Adds the item to the list if it does not exist
         /// </summary>
         /// <param name="list"></param>
         /// <param name="value"></param>
@@ -39,21 +38,14 @@ namespace Xtzp.Extensions
         /// <returns></returns>
         public static List<T> AddIfNotExists<T>(this List<T> list, T value)
         {
-            if (list is null)
-            {
-                throw new Exception("List cannot be null");
-            }
+            if (list is null) throw new Exception("List cannot be null");
 
-            if (!list.Contains(value))
-            {
-                list.Add(value);
-            }
+            if (!list.Contains(value)) list.Add(value);
 
             return list;
         }
 
         /// <summary>
-        /// 
         /// </summary>
         /// <param name="list"></param>
         /// <param name="predicate"></param>
@@ -63,21 +55,14 @@ namespace Xtzp.Extensions
         /// <exception cref="Exception"></exception>
         public static List<T> AddIfNotExists<T>(this List<T> list, Func<T, Func<T, bool>> predicate, T value)
         {
-            if (list is null)
-            {
-                throw new Exception("List cannot be null");
-            }
+            if (list is null) throw new Exception("List cannot be null");
 
-            if (!list.Any(predicate(value)))
-            {
-                list.Add(value);
-            }
+            if (!list.Any(predicate(value))) list.Add(value);
 
             return list;
         }
 
         /// <summary>
-        /// 
         /// </summary>
         /// <param name="list"></param>
         /// <param name="predicate"></param>
@@ -90,10 +75,7 @@ namespace Xtzp.Extensions
             IEnumerable<T> values
         )
         {
-            foreach (var val in values)
-            {
-                list.AddIfNotExists(predicate, val);
-            }
+            foreach (var val in values) list.AddIfNotExists(predicate, val);
 
             return list;
         }

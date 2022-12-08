@@ -1,28 +1,26 @@
 using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Text.RegularExpressions;
 
 namespace Xtzp.Extensions
 {
-    
     /// <summary>
-    /// extension methods for string
+    ///     extension methods for string
     /// </summary>
     public static class StringExtensions
     {
         /// <summary>
-        /// Non static way to check if string is Null or Empty
+        ///     Non static way to check if string is Null or Empty
         /// </summary>
         /// <param name="s"></param>
-        /// <returns><see langword="true"/> if the</returns>
+        /// <returns><see langword="true" /> if the</returns>
         public static bool IsNullOrEmpty(this string s)
         {
             return string.IsNullOrEmpty(s);
         }
 
         /// <summary>
-        /// Non static way to format a string
+        ///     Non static way to format a string
         /// </summary>
         /// <param name="s"></param>
         /// <param name="items"></param>
@@ -35,7 +33,7 @@ namespace Xtzp.Extensions
         }
 
         /// <summary>
-        /// Returns true if two strings are identical
+        ///     Returns true if two strings are identical
         /// </summary>
         /// <param name="s"></param>
         /// <param name="that"></param>
@@ -50,7 +48,6 @@ namespace Xtzp.Extensions
         }
 
         /// <summary>
-        ///
         /// </summary>
         /// <param name="s"></param>
         /// <param name="emptyStringUponNull"></param>
@@ -63,8 +60,8 @@ namespace Xtzp.Extensions
 
 
         /// <summary>
-        /// returns true if both strings are null or Empty.
-        /// if not, two strings are compared normally
+        ///     returns true if both strings are null or Empty.
+        ///     if not, two strings are compared normally
         /// </summary>
         /// <param name="s"></param>
         /// <param name="s2"></param>
@@ -79,7 +76,7 @@ namespace Xtzp.Extensions
         }
 
         /// <summary>
-        /// Splits the string by pascal case.
+        ///     Splits the string by pascal case.
         /// </summary>
         /// <param name="text">The text.</param>
         /// <returns></returns>
@@ -91,7 +88,6 @@ namespace Xtzp.Extensions
         }
 
         /// <summary>
-        /// 
         /// </summary>
         /// <param name="s"></param>
         /// <returns></returns>
@@ -114,7 +110,6 @@ namespace Xtzp.Extensions
         }
 
         /// <summary>
-        /// 
         /// </summary>
         /// <param name="s"></param>
         /// <returns></returns>
@@ -128,7 +123,7 @@ namespace Xtzp.Extensions
                 StringSplitOptions.RemoveEmptyEntries
             ).AsEnumerable();
 
-            var result = String.Join(
+            var result = string.Join(
                 string.Empty,
                 words
                     .Select(w => w.Substring(0, 1).ToUpper() + w.Substring(1))
@@ -137,7 +132,7 @@ namespace Xtzp.Extensions
         }
 
         /// <summary>
-        /// if the string is null return the fallback string
+        ///     if the string is null return the fallback string
         /// </summary>
         /// <param name="s"></param>
         /// <param name="fallBack"></param>
@@ -148,7 +143,7 @@ namespace Xtzp.Extensions
         }
 
         /// <summary>
-        /// if the string is equal to empty string return the fallback string
+        ///     if the string is equal to empty string return the fallback string
         /// </summary>
         /// <param name="s"></param>
         /// <param name="fallBack"></param>
@@ -159,7 +154,7 @@ namespace Xtzp.Extensions
         }
 
         /// <summary>
-        /// if the string is null or empty return the fallback string
+        ///     if the string is null or empty return the fallback string
         /// </summary>
         /// <param name="s"></param>
         /// <param name="fallBack"></param>
@@ -170,8 +165,8 @@ namespace Xtzp.Extensions
         }
 
         /// <summary>
-        /// converts the first character of the string to UpperCase
-        /// inspired by PHP's function ucfirst
+        ///     converts the first character of the string to UpperCase
+        ///     inspired by PHP's function ucfirst
         /// </summary>
         /// <param name="str"></param>
         /// <returns></returns>
@@ -184,8 +179,8 @@ namespace Xtzp.Extensions
         }
 
         /// <summary>
-        /// adds the given <paramref name="prefix"/> to the start of the
-        /// string if it doesn't exist already
+        ///     adds the given <paramref name="prefix" /> to the start of the
+        ///     string if it doesn't exist already
         /// </summary>
         /// <param name="str"></param>
         /// <param name="prefix"></param>
@@ -198,10 +193,10 @@ namespace Xtzp.Extensions
                     ? str
                     : prefix + str;
         }
-        
+
         /// <summary>
-        /// adds the given <paramref name="suffix"/> to the end of the
-        /// string if it doesn't exist already
+        ///     adds the given <paramref name="suffix" /> to the end of the
+        ///     string if it doesn't exist already
         /// </summary>
         /// <param name="str"></param>
         /// <param name="suffix"></param>

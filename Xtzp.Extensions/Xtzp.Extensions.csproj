@@ -3,12 +3,13 @@
     <PropertyGroup>
         <TargetFramework>netstandard2.0</TargetFramework>
         <Title>Xtzp.Extensions</Title>
-        <Authors />
-        <PackageVersion>1.0.3</PackageVersion>
+        <Authors>Theodore Chatziperis (xatzipe)</Authors>
+        <PackageVersion>2.1.0</PackageVersion>
+        <Version>2.1.0</Version>
         <Description>Theodore Chatziperis (xatzipe)</Description>
-        <Copyright>Theodore Chatziperis (xatzipe)</Copyright>
+        <Copyright>Theodore Chatziperis (xatzipe) 2022</Copyright>
         <PackageProjectUrl>https://github.com/xatzipe/Xtzp.Extensions</PackageProjectUrl>
-        <PackageLicenseUrl>https://github.com/xatzipe/Xtzp.Extensions/blob/master/LICENSE</PackageLicenseUrl>
+        <PackageLicenseExpression>MIT</PackageLicenseExpression>
         <PackageTags>Extensions, c#, List, String, DateTime, Enumerable</PackageTags>
         <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
         <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
@@ -17,11 +18,11 @@
     </PropertyGroup>
 
     <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
-      <DocumentationFile>bin\Debug\Xtzp.Extensions.xml</DocumentationFile>
+        <DocumentationFile>bin\Debug\Xtzp.Extensions.xml</DocumentationFile>
     </PropertyGroup>
 
     <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
-      <DocumentationFile>bin\Release\Xtzp.Extensions.xml</DocumentationFile>
+        <DocumentationFile>bin\Release\Xtzp.Extensions.xml</DocumentationFile>
     </PropertyGroup>
 
 </Project>

@@ -4,12 +4,12 @@ using System.Collections.Generic;
 namespace Xtzp.Extensions
 {
     /// <summary>
-    /// extension methods for Dictionary
+    ///     extension methods for Dictionary
     /// </summary>
     public static class DictionaryExtensions
     {
         /// <summary>
-        /// inserts a KeyValuePair to the dictionary
+        ///     inserts a KeyValuePair to the dictionary
         /// </summary>
         /// <param name="dictionary"></param>
         /// <param name="input"></param>
@@ -23,7 +23,7 @@ namespace Xtzp.Extensions
         }
 
         /// <summary>
-        /// inserts multiple KeyValuePairs to the dictionary
+        ///     inserts multiple KeyValuePairs to the dictionary
         /// </summary>
         /// <param name="dictionary"></param>
         /// <param name="input"></param>
