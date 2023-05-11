@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using Xunit;
 
@@ -33,7 +34,7 @@ public class StringExtensionTests
             yield return new object[]
             {
                 "Test",
-                new string[0],
+                Array.Empty<string>(),
                 "Test"
             };
             yield return new object[]
