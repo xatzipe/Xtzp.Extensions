@@ -84,7 +84,7 @@ namespace Xtzp.Extensions
         {
             return string.IsNullOrEmpty(text)
                 ? text
-                : Regex.Replace(text, "([A-Z])", " $1", RegexOptions.Compiled).Trim();
+                : Regex.Replace(text, "([A-Z])", " $1", RegexOptions.Compiled, TimeSpan.FromSeconds(10)).Trim();
         }
 
         /// <summary>
@@ -187,11 +187,10 @@ namespace Xtzp.Extensions
         /// <returns></returns>
         public static string EnsurePrefix(this string str, string prefix)
         {
-            return str == null
-                ? str
-                : str.StartsWith(prefix)
-                    ? str
-                    : prefix + str;
+            if (null == str)
+                return null;
+
+            return str.StartsWith(prefix) ? str : prefix + str;
         }
 
         /// <summary>
@@ -203,11 +202,10 @@ namespace Xtzp.Extensions
         /// <returns></returns>
         public static string EnsureSuffix(this string str, string suffix)
         {
-            return str == null
-                ? str
-                : str.EndsWith(suffix)
-                    ? str
-                    : str + suffix;
+            if (null == str)
+                return null;
+
+            return str.EndsWith(suffix) ? str : str + suffix;
         }
     }
 }

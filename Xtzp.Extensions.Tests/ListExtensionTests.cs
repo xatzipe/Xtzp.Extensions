@@ -19,21 +19,21 @@ public class ListExtensionTests
             {
                 new List<string> { "str1" },
                 null,
-                new string[0],
+                Array.Empty<string>(),
                 new List<string> { "str1" }
             };
             yield return new object[]
             {
                 new List<string> { "str1" },
                 string.Empty,
-                new string[0],
+                Array.Empty<string>(),
                 new List<string> { "str1" }
             };
             yield return new object[]
             {
                 new List<string> { "str1" },
                 "item1",
-                new string[0],
+                Array.Empty<string>(),
                 new List<string> { "str1", "item1" }
             };
             yield return new object[]
@@ -113,6 +113,7 @@ public class ListExtensionTests
     /// <param name="lst">Lst.</param>
     /// <param name="item">Item.</param>
     /// <param name="parameters">Parameters.</param>
+    /// <param name="expected"></param>
     [Theory]
     [MemberData(nameof(AddWithFormatTestCases))]
     public void TestAddWithFormat(IList<string> lst, string item, string[] parameters, IList<string> expected)
@@ -139,20 +140,22 @@ public class ListExtensionTests
     [Fact]
     public void TestAddIfNotExistsThrowsExceptionWhenListNull()
     {
-        List<string> lst = null;
-        var ex = Assert.Throws<Exception>(() => lst.AddIfNotExists("text1"));
-        Assert.Equal("List cannot be null", ex.Message);
+        var ex = Assert.Throws<ArgumentNullException>(() => ((List<string>)null).AddIfNotExists("text1"));
+        Assert.Equal("Value cannot be null. (Parameter 'list')", ex.Message);
     }
 
 
     [Fact]
     public void TestAddIfNotExistsOverrideThrowsExceptionWhenListNull()
     {
-        List<string> lst = null;
-        var ex = Assert.Throws<Exception>(() => lst.AddIfNotExists(ob => v => true, "text1"));
-        Assert.Equal("List cannot be null", ex.Message);
+        var ex = Assert.Throws<ArgumentNullException>(() => ((List<string>)null).AddIfNotExists(_ => _   => true, "text1"));
+        Assert.Equal("Value cannot be null. (Parameter 'list')", ex.Message);
     }
 
+    /// <summary>
+    /// </summary>
+    /// <param name="expected"></param>
+    /// <param name="actual"></param>
     [Theory]
     [MemberData(nameof(AddIfNotExistsOverrideAddsItemWhenNotInListTestCases))]
     public void TestAddIfNotExistsOverrideAddsItemWhenNotInList(
@@ -163,12 +166,13 @@ public class ListExtensionTests
         Assert.Equal(expected, actual);
     }
 
+    /// <summary>
+    /// </summary>
     [Fact]
     public void TestAddRangeIfNotExists()
     {
         var obj1 = new AddIfNotExistPocoClass("Name1", "LastName1", 10);
         var obj2 = new AddIfNotExistPocoClass("Name1", "LastName2", 11);
-        var obj3 = new AddIfNotExistPocoClass("Name3", "LastName3", 12);
         var obj4 = new AddIfNotExistPocoClass("Name1", "LastName1", 14);
         var obj5 = new AddIfNotExistPocoClass("Name5", "LastName5", 15);
 

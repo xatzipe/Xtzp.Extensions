@@ -38,7 +38,7 @@ namespace Xtzp.Extensions
         /// <returns></returns>
         public static List<T> AddIfNotExists<T>(this List<T> list, T value)
         {
-            if (list is null) throw new Exception("List cannot be null");
+            if (list is null) throw new ArgumentNullException(nameof(list));
 
             if (!list.Contains(value)) list.Add(value);
 
@@ -55,7 +55,7 @@ namespace Xtzp.Extensions
         /// <exception cref="Exception"></exception>
         public static List<T> AddIfNotExists<T>(this List<T> list, Func<T, Func<T, bool>> predicate, T value)
         {
-            if (list is null) throw new Exception("List cannot be null");
+            if (list is null) throw new ArgumentNullException(nameof(list));
 
             if (!list.Any(predicate(value))) list.Add(value);
 
